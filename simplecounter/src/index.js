@@ -4,6 +4,7 @@ import './index.css';
 import { Provider } from 'react-redux';
 import {createSlice, configureStore} from '@reduxjs/toolkit';
 import * as serviceWorker from './serviceWorker';
+import Counter from './Counter'
 
 const counterSlice = createSlice({
     name: 'counter', 
@@ -26,9 +27,7 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
     <h1>Simple Counter</h1>
-<div>State: {store.state.value}</div>
-    <button onClick={store.dispatch(counterSlice.actions.increment())}>+</button>
-    <button onClick={store.dispatch(counterSlice.actions.decrement())}>-</button>
+    <Counter slice={counterSlice}/>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')
